@@ -48,4 +48,38 @@ $(document).ready(function(){
             });
         }
     });
+
+    // Navbar link hover and active state
+    $(".navbar-nav .nav-link").hover(
+        function() {
+            $(this).addClass("nav-hover");
+        },
+        function() {
+            $(this).removeClass("nav-hover");
+        }
+    );
+
+    // Set active nav item on scroll
+    $(window).on('scroll', function() {
+        $('.nav-link').removeClass('nav-active');
+        let currentSection = '';
+        $('section').each(function() {
+            const sectionTop = $(this).offset().top;
+            if ($(window).scrollTop() >= sectionTop - 60) {
+                currentSection = $(this).attr('id');
+            }
+        });
+        $('.navbar-nav .nav-link[data-section="' + currentSection + '"]').addClass('nav-active');
+    });
+
+    // Set active nav item on click
+    $(".navbar-nav .nav-link").on('click', function() {
+        $('.navbar-nav .nav-link').removeClass('nav-active');
+        $(this).addClass('nav-active');
+    });
+
+    // Close mobile navbar when an item is clicked
+    $(".navbar-box .nav-link").on('click', function() {
+        $('.navbar-box').removeClass('navbar-box-show');
+    });
 });

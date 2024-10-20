@@ -138,7 +138,33 @@ button{
 .nav-link{
     font-weight: 400;
     font-size: 18px;
+    position: relative;
 }
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--clr-white);
+    transition: width 0.3s ease;
+}
+
+.nav-link.nav-hover::after,
+.nav-link.nav-active::after {
+    width: 100%;
+}
+
+.nav-link.nav-hover::after {
+    opacity: 0.5;
+}
+
+.nav-link.nav-active::after {
+    opacity: 1;
+}
+
 .nav-link:hover{
     opacity: 0.9;
 }
@@ -597,62 +623,51 @@ button{
         color: var(--clr-black);
     }
 
-    .navbar-box{
+    .navbar-box {
         position: fixed;
         right: 0;
         top: 0;
-        width: 280px;
-        height: 100%;
+        width: 100%;
+        height: auto;
+        max-height: 100vh;
+        overflow-y: auto;
         box-shadow: rgba(149, 157, 165, 0.4) 0px 8px 24px;
         z-index: 999;
-        background-color: var(--clr-white);
-        padding: 48px 32px 24px;
-        transform: translateX(100%);
+        background-color: var(--clr-white); /* Change back to white */
+        padding: 20px;
+        transform: translateY(-100%);
         transition: var(--transition-default);
     }
 
-    .navbar-box-show{
-        transform: translateX(0);
+    .navbar-box-show {
+        transform: translateY(0);
     }
 
-    .navbar-box .nav-link{
-        color: var(--clr-black);
-        position: relative;
-        padding-bottom: 8px;
-    }
-
-    .navbar-box .nav-link::after{
-        content: "";
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        transform: translateX(-50%);
-        height: 1px;
-        width: 0;
-        background-color: var(--clr-blue);
-        transition: var(--transition-default);
-    }
-    .navbar-box .nav-link:hover{
-        color: var(--clr-blue);
-    }
-    .navbar-box .nav-link:hover::after{
-        width: 100%;
-    }
-    .navbar-box .nav-link.nav-active{
-        color: var(--clr-blue);
-    }
-    .navbar-box .nav-item{
-        margin: 12px 0;
-    }
-    .navbar-box .navbar-nav{
+    .navbar-box .navbar-nav {
         flex-direction: column;
+        align-items: center;
     }
-    .navbar-box .navbar-hide-btn{
-        display: block;
+
+    .navbar-box .nav-item {
+        margin: 10px 0;
+    }
+
+    .navbar-box .nav-link {
+        color: var(--clr-dark-blue); /* Change text color to dark blue */
+        font-size: 18px;
+        padding: 10px 0;
+    }
+
+    .navbar-box .navbar-hide-btn {
+        display: block; /* Make sure it's displayed */
         position: absolute;
-        right: 16px;
-        top: 16px;
+        right: 20px;
+        top: 20px;
         font-size: 24px;
+        color: var(--clr-dark-blue); /* Change color to dark blue */
+        background: none;
+        border: none;
+        cursor: pointer;
     }
 
     /* banner */
@@ -1167,4 +1182,7 @@ button{
         left: 100%;
     }
 }
+
+
+
 
