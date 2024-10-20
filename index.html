@@ -284,16 +284,25 @@
                                     <div class="form-title">
                                         <h4 class="form-title-name">Contáctanos</h4>
                                     </div>
-                                    <form>
+                                    <form action="https://api.web3forms.com/submit" method="POST">
+                                        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+
                                         <div class="form-group">
-                                            <input type="text" id="name" class="form-control custom-input" placeholder="Tu nombre" required>
+                                            <input type="text" id="name" name="name" class="form-control custom-input" placeholder="Tu nombre" required>
                                         </div>
                                         <div class="form-group">
-                                            <input type="email" id="email" class="form-control custom-input" placeholder="Tu correo electrónico" required>
+                                            <input type="email" id="email" name="email" class="form-control custom-input" placeholder="Tu correo electrónico" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
                                         </div>
                                         <div class="form-group">
-                                            <textarea id="message" class="form-control custom-input" rows="4" placeholder="Tu mensaje" required></textarea>
+                                            <input type="tel" id="phone" name="phone" class="form-control custom-input" placeholder="Tu número de teléfono" required pattern="^[+]?[\s./0-9]*[(]?[0-9]{1,4}[)]?[-\s./0-9]*$">
                                         </div>
+                                        <div class="form-group">
+                                            <textarea id="message" name="message" class="form-control custom-input" rows="4" placeholder="Tu mensaje" required></textarea>
+                                        </div>
+
+                                        <!-- Honeypot Spam Protection -->
+                                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
                                         <button type="submit" class="btn btn-primary-outline">Enviar</button>
                                     </form>
                                 </div>
@@ -319,8 +328,8 @@
                                 <h3 class="footer-item-title">Información de Contacto</h3>
                                 <ul class="footer-links">
                                     <li><i class="fas fa-phone"></i> +1 234 567 8900</li>
-                                    <li><i class="fas fa-envelope"></i> info@profimed.com</li>
-                                    <li><i class="fas fa-map-marker-alt"></i> 123 Calle Principal, Ciudad, País</li>
+                                    <li><i class="fas fa-envelope"></i> anaperez.profimed.mex@gmail.com</li>
+                                    <li><i class="fas fa-map-marker-alt"></i> CDMX, México</li>
                                 </ul>
                             </div>
                             
