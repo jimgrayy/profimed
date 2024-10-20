@@ -1160,7 +1160,11 @@ button{
     overflow: hidden;
     width: 50px; /* Adjust as needed */
     height: 2px; /* Adjust as needed */
-    background-color: var(--clr-blue); /* Use your desired color */
+    background-color: var(--clr-blue); /* Default blue background */
+}
+
+.title-separator.white-separator {
+    background-color: var(--clr-white);
 }
 
 .animate-bar::before {
@@ -1170,8 +1174,12 @@ button{
     left: 0;
     width: 5px;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.7); /* Adjust color and opacity as needed */
+    background-color: rgba(255, 255, 255, 0.7); /* White animation for blue separators */
     animation: animate 2s linear infinite;
+}
+
+.white-separator.animate-bar::before {
+    background-color: rgba(69, 143, 246, 0.7); /* Blue animation for white separators */
 }
 
 @keyframes animate {
@@ -1183,6 +1191,89 @@ button{
     }
 }
 
+.services-item .item-icon {
+    display: flex;
+    align-items: flex-start;
+    height: auto;
+    margin-bottom: 20px; /* Add some space below the icon */
+}
 
+.services-item .item-icon img {
+    max-width: 80px; /* Adjust this value to match the original image size */
+    max-height: 80px; /* Adjust this value to match the original image size */
+    width: auto;
+    height: auto;
+}
 
+.title-separator.blue-separator {
+    background-color: var(--clr-blue) !important;
+}
 
+/* If the above doesn't work, try using the actual color value: */
+.title-separator.blue-separator {
+    background-color: #458ff6 !important;
+}
+
+/* General styles for title separators */
+.title-separator {
+    position: relative;
+    overflow: hidden;
+    width: 50px;
+    height: 2px;
+    background-color: var(--clr-blue);
+    margin: 20px auto;
+}
+
+/* Specific style for the Quienes Somos section */
+#about .title-separator {
+    background-color: var(--clr-white);
+}
+
+.animate-bar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    animation: animate 2s linear infinite;
+}
+
+/* Specific animation for Quienes Somos section */
+#about .animate-bar::before {
+    background-color: rgba(69, 143, 246, 0.7); /* Blue color */
+}
+
+@keyframes animate {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+.title-box-name,
+.services-item .item-title {
+    color: var(--clr-dark-blue);
+    font-size: 36px; /* Adjust size as needed for main titles */
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.services-item .item-title {
+    font-size: 24px; /* Adjust size as needed for service item titles */
+    margin-bottom: 10px; /* Adjust spacing as needed */
+}
+
+/* Specific override for services section if needed */
+#services .title-box-name,
+#services .services-item .item-title {
+    color: var(--clr-dark-blue);
+}
+
+/* Specific override for contact section if needed */
+#contact .title-box-name {
+    color: var(--clr-dark-blue);
+}
