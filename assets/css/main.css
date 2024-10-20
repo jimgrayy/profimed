@@ -1277,3 +1277,54 @@ button{
 #contact .title-box-name {
     color: var(--clr-dark-blue);
 }
+
+.banner {
+    padding-top: 10vh; /* Adjust this value as needed */
+}
+
+@media (max-width: 768px) {
+    .banner {
+        padding-top: 2vh; /* Adjust for smaller screens */
+    }
+}
+
+/* Existing styles for the contact section */
+.sc-contact .title-box {
+    text-align: left; /* Align left for larger screens */
+}
+
+.contact-form .form-title {
+    text-align: left; /* Align left for larger screens */
+}
+
+.contact-form button[type="submit"] {
+    display: block;
+    margin-left: 0; /* Align left for larger screens */
+}
+
+/* Media query for small screens */
+@media (max-width: 768px) {
+    .sc-contact .title-box {
+        text-align: center;
+    }
+
+    .contact-form .form-title {
+        text-align: center;
+    }
+
+    .contact-form button[type="submit"] {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Center the form on small screens */
+    .contact-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-form-wrapper {
+        width: 100%;
+        max-width: 400px; /* Adjust as needed */
+    }
+}
